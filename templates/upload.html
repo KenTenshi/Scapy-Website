@@ -5,9 +5,13 @@
   </head>
   <body>
     <h1>Wireshark-Datei hochladen</h1>
-    <form action="/" method="POST" enctype="multipart/form-data">
-      <input type="file" name="file" accept=".pcap,.pcapng">
-      <input type="submit" value="Hochladen">
-    </form>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <select name="packet_type">
+          <option value="all">Alle Pakete</option>
+          <option value="icmp">Nur ICMP-Pakete</option>
+      </select>
+      <input type="submit">
+  </form>  
   </body>
 </html>

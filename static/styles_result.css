@@ -1,0 +1,51 @@
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+      }
+      h2 {
+        color: #666;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #008CBA;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      a:hover {
+        background-color: #007B9A;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .flex-item {
+        flex: 1 0 300px; /* Änderung hier: '0' anstelle von '1' */
+        margin-bottom: 20px;
+        box-sizing: border-box; /* Damit das Padding und die Border zur Breite hinzugerechnet werden */
+        padding: 10px; /* Ein bisschen Innenabstand hinzufügen */
+        border: 1px solid #ccc; /* Einen Rand hinzufügen */
+        border-radius: 5px; /* Die Ecken abrunden */
+      }
+      .flex-item ul {
+        margin: 0;
+      }

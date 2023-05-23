@@ -2,11 +2,21 @@
 <html>
   <head>
     <title>Datei-Upload</title>
+    <link rel="stylesheet" href="../static/styles_upload.css">
   </head>
   <body>
     <h1>Wireshark-Datei hochladen</h1>
     <form action="/" method="POST" enctype="multipart/form-data">
-      <input type="file" name="file" accept=".pcap,.pcapng">
+      <label for="file" class="custom-file-label">Datei auswählen</label>
+      <input type="file" id="file" name="file" accept=".pcap,.pcapng" class="custom-file-input">
+      <br>
+      <select name="analyse_type">
+        <option value="standard">Standard-Analyse</option>
+        <option value="ip_count">IP-Adressen zählen</option>
+        <option value="packet_count">Pakettypen zählen</option>
+        <!-- Fügen Sie weitere Optionen hinzu, je nach den verfügbaren Analysen... -->
+      </select>
+      <br>
       <input type="submit" value="Hochladen">
     </form>
   </body>

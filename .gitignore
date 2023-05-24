@@ -1,3 +1,4 @@
 
 *.pcapng
 uploads/mitschnitt.pcapng
+Venv_ScapyWebsite/Lib/site-packages

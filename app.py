@@ -50,5 +50,3 @@ def upload_file():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-#Hier steht scheiße

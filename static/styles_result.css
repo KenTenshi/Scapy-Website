@@ -39,12 +39,12 @@
         justify-content: space-between;
       }
       .flex-item {
-        flex: 1 0 300px; /* Änderung hier: '0' anstelle von '1' */
+        flex: 1 0 300px; 
         margin-bottom: 20px;
-        box-sizing: border-box; /* Damit das Padding und die Border zur Breite hinzugerechnet werden */
-        padding: 10px; /* Ein bisschen Innenabstand hinzufügen */
-        border: 1px solid #ccc; /* Einen Rand hinzufügen */
-        border-radius: 5px; /* Die Ecken abrunden */
+        box-sizing: border-box; 
+        padding: 10px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
       }
       .flex-item ul {
         margin: 0;

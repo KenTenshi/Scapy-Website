@@ -1,42 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from scapy.all import rdpcap
 from collections import Counter
+from Python.packet_analyse import analyze_pcap, analyze_ip_count, analyze_packet_count, analyze_dns, analyze_ping, analyze_dhcp
 import os
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-def analyze_pcap(file_path):
-    packets = rdpcap(file_path)
-
-    # Zählen Sie die verschiedenen Arten von Paketen
-    packet_types = Counter()
-    src_ips = Counter()
-    dst_ips = Counter()
-    src_ports = Counter()
-    dst_ports = Counter()
-
-    for packet in packets:
-        packet_types[packet.__class__.__name__] += 1
-
-        if 'IP' in packet:
-            src_ips[packet['IP'].src] += 1
-            dst_ips[packet['IP'].dst] += 1
-
-        if 'TCP' in packet or 'UDP' in packet:
-            src_ports[packet.sport] += 1
-            dst_ports[packet.dport] += 1
-
-    result = {
-        'packet_types': packet_types,
-        'src_ips': src_ips.most_common(5),
-        'dst_ips': dst_ips.most_common(5),
-        'src_ports': src_ports.most_common(5),
-        'dst_ports': dst_ports.most_common(5),
-    }
-
-    return result
-
+@app.route('/', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -44,9 +15,28 @@ def upload_file():
         if file:
             file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
             file.save(file_path)
-            analysis_results = analyze_pcap(file_path)
-            return render_template('result.html', result=analysis_results)
+            analysis_type = request.form.get('analyse_type')  # Holen Sie sich den Analysetyp aus dem Formular
+            if analysis_type == 'top':
+                analysis_results = analyze_pcap(file_path)
+                return render_template('result_standard.html', result=analysis_results)
+            elif analysis_type == 'ip_count':
+                analysis_results = analyze_ip_count(file_path)
+                return render_template('result_ip_count.html', result=analysis_results)
+            elif analysis_type == 'packet_count':
+                analysis_results = analyze_packet_count(file_path)
+                return render_template('result_packet_count.html', result=analysis_results)
+            elif analysis_type == 'dns':
+                analysis_results = analyze_dns(file_path)
+                return render_template('result_dns.html', result=analysis_results)
+            elif analysis_type == 'ping':
+                analysis_results = analyze_ping(file_path)
+                return render_template('result_ping.html', result=analysis_results)
+            elif analysis_type == 'dhcp':
+                analysis_results = analyze_dhcp(file_path)
+                return render_template('result_dhcp.html', result=analysis_results)
     return render_template('upload.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

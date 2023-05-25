@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DHCP Analyse Ergebnis</title>
+    <link rel="stylesheet" href="../static/styles_result.css">
+  </head>
+  <body>
+    <h1>DHCP-Analyseergebnis</h1>
+    <div class="flex-container">
+      <div class="flex-item">
+        <h2>DHCP-Nachrichten</h2>
+        <ul>
+          {% for operation, count in result.dhcp_messages.items() %}
+            <li>{{ operation }}: {{ count }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a>
+  </body>
+</html>

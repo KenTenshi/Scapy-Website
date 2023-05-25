@@ -3,21 +3,33 @@
   <head>
     <title>Datei-Upload</title>
     <link rel="stylesheet" href="../static/styles_upload.css">
+    <script>
+      function showFileName() {
+        var fileInput = document.getElementById('file');
+        var fileName = fileInput.files[0].name;
+        var fileLabel = document.getElementById('file-label');
+        fileLabel.textContent = fileName;
+      }
+    </script>
   </head>
   <body>
     <h1>Wireshark-Datei hochladen</h1>
     <form action="/" method="POST" enctype="multipart/form-data">
-      <label for="file" class="custom-file-label">Datei auswählen</label>
-      <input type="file" id="file" name="file" accept=".pcap,.pcapng" class="custom-file-input">
+      <label for="file" class="custom-file-label" id="file-label">
+        <span class="file-label-text">Datei auswählen</span>
+      </label>
+      <input type="file" id="file" name="file" accept=".pcap,.pcapng" class="custom-file-input" onchange="showFileName()">
       <br>
-      <select name="analyse_type">
-        <option value="standard">Standard-Analyse</option>
+      <select name="analyse_type" class="custom-select">
+        <option value="top">Top 5. Pakete</option>
         <option value="ip_count">IP-Adressen zählen</option>
         <option value="packet_count">Pakettypen zählen</option>
-        <!-- Fügen Sie weitere Optionen hinzu, je nach den verfügbaren Analysen... -->
+        <option value="dns">DNS-Analyse</option>
+        <option value="ping">Ping-Analyse</option>
+        <option value="dhcp">DHCP-Analyse</option>
       </select>
       <br>
-      <input type="submit" value="Hochladen">
+      <input type="submit" value="Hochladen" class="upload-button">
     </form>
   </body>
 </html>

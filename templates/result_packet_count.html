@@ -11,11 +11,11 @@
         <h2>Pakettypen</h2>
         <ul>
           {% for packet_type, count in result.packet_types.items() %}
-            <li>{{ packet_type }}: {{ count }}</li>
+            <li>{{ packet_type }}: {{ count }}</li> <!-- Anzeige der Pakettypen und ihrer Anzahl -->
           {% endfor %}
         </ul>
       </div>
     </div>
-    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a>
+    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a> <!-- Verlinkung zur Startseite für den Upload -->
   </body>
 </html>

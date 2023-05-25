@@ -11,7 +11,7 @@
         <h2>Top 5 Quell-IPs</h2>
         <ul>
           {% for ip, count in result.src_ips %}
-            <li>{{ ip }}: {{ count }}</li>
+            <li>{{ ip }}: {{ count }}</li> <!-- Anzeige der Top 5 Quell-IPs und ihrer Anzahl -->
           {% endfor %}
         </ul>
       </div>
@@ -19,11 +19,11 @@
         <h2>Top 5 Ziel-IPs</h2>
         <ul>
           {% for ip, count in result.dst_ips %}
-            <li>{{ ip }}: {{ count }}</li>
+            <li>{{ ip }}: {{ count }}</li> <!-- Anzeige der Top 5 Ziel-IPs und ihrer Anzahl -->
           {% endfor %}
         </ul>
       </div>
     </div>
-    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a>
+    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a> <!-- Verlinkung zur Startseite für den Upload -->
   </body>
 </html>

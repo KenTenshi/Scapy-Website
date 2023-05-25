@@ -11,7 +11,7 @@
         <h2>Pakettypen</h2>
         <ul>
           {% for packet_type, count in result.packet_types.items() %}
-            <li>{{ packet_type }}: {{ count }}</li>
+            <li>{{ packet_type }}: {{ count }}</li> <!-- Anzeige der Pakettypen und deren Anzahl -->
           {% endfor %}
         </ul>
       </div>
@@ -19,7 +19,7 @@
         <h2>Top 5 Quell-IPs</h2>
         <ul>
           {% for ip, count in result.src_ips %}
-            <li>{{ ip }}: {{ count }}</li>
+            <li>{{ ip }}: {{ count }}</li> <!-- Anzeige der Top 5 Quell-IPs und deren Anzahl -->
           {% endfor %}
         </ul>
       </div>
@@ -27,7 +27,7 @@
         <h2>Top 5 Ziel-IPs</h2>
         <ul>
           {% for ip, count in result.dst_ips %}
-            <li>{{ ip }}: {{ count }}</li>
+            <li>{{ ip }}: {{ count }}</li> <!-- Anzeige der Top 5 Ziel-IPs und deren Anzahl -->
           {% endfor %}
         </ul>
       </div>
@@ -35,7 +35,7 @@
         <h2>Top 5 Quell-Ports</h2>
         <ul>
           {% for port, count in result.src_ports %}
-            <li>{{ port }}: {{ count }}</li>
+            <li>{{ port }}: {{ count }}</li> <!-- Anzeige der Top 5 Quell-Ports und deren Anzahl -->
           {% endfor %}
         </ul>
       </div>
@@ -43,11 +43,11 @@
         <h2>Top 5 Ziel-Ports</h2>
         <ul>
           {% for port, count in result.dst_ports %}
-            <li>{{ port }}: {{ count }}</li>
+            <li>{{ port }}: {{ count }}</li> <!-- Anzeige der Top 5 Ziel-Ports und deren Anzahl -->
           {% endfor %}
         </ul>
       </div>
     </div>
-    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a>
+    <a href="{{ url_for('upload_file') }}">Zurück zur Startseite</a> <!-- Verlinkung zur Startseite für den Upload -->
   </body>
 </html>

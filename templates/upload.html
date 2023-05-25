@@ -16,9 +16,10 @@
     <h1>Wireshark-Datei hochladen</h1>
     <form action="/" method="POST" enctype="multipart/form-data">
       <label for="file" class="custom-file-label" id="file-label">
-        <span class="file-label-text">Datei auswählen</span>
+        <span class="file-label-text">Datei auswählen</span> <!-- Standardtext für die Dateiauswahl -->
       </label>
       <input type="file" id="file" name="file" accept=".pcap,.pcapng" class="custom-file-input" onchange="showFileName()">
+      <!-- Dateiupload-Eingabefeld mit ID "file", akzeptiert .pcap und .pcapng Dateiformate -->
       <br>
       <select name="analyse_type" class="custom-select">
         <option value="top">Top 5. Pakete</option>
@@ -28,8 +29,10 @@
         <option value="ping">Ping-Analyse</option>
         <option value="dhcp">DHCP-Analyse</option>
       </select>
+      <!-- Dropdown-Menü für die Auswahl des Analysetyps -->
       <br>
       <input type="submit" value="Hochladen" class="upload-button">
+      <!-- Hochladen-Button zum Absenden des Formulars -->
     </form>
   </body>
 </html>

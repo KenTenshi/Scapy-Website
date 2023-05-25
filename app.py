@@ -1,12 +1,15 @@
+# Import der erforderlichen Module und Funktionen
 from flask import Flask, render_template, request, redirect, url_for
 from scapy.all import rdpcap
 from collections import Counter
 from Python.packet_analyse import analyze_pcap, analyze_ip_count, analyze_packet_count, analyze_dns, analyze_ping, analyze_dhcp
 import os
 
+# Flask-Webanwendung initialisieren
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
+# Route für die Startseite der Webanwendung
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
@@ -35,8 +38,6 @@ def upload_file():
                 analysis_results = analyze_dhcp(file_path)
                 return render_template('result_dhcp.html', result=analysis_results)
     return render_template('upload.html')
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)

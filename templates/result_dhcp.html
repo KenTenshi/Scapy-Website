@@ -1,17 +1,17 @@
 <!doctype html>
 <html>
   <head>
-    <title>Ergebnis</title>
+    <title>DHCP Analyse Ergebnis</title>
     <link rel="stylesheet" href="../static/styles_result.css">
   </head>
   <body>
-    <h1>Analyseergebnis</h1>
+    <h1>DHCP-Analyseergebnis</h1>
     <div class="flex-container">
       <div class="flex-item">
-        <h2>Pakettypen</h2>
+        <h2>DHCP-Nachrichten</h2>
         <ul>
-          {% for packet_type, count in result.packet_types.items() %}
-            <li>{{ packet_type }}: {{ count }}</li>
+          {% for operation, count in result.dhcp_messages.items() %}
+            <li>{{ operation }}: {{ count }}</li>
           {% endfor %}
         </ul>
       </div>

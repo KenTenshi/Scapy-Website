@@ -44,6 +44,14 @@ Dies macht all dies deutlich einfacher und hilft dabei das ganze schnell und ein
 
 ### Unsere Scapy Skripts
 
+##### Standard
+
+Unser Skript analysiert die eingelesene .pcap Datei und gibt die Top 5. der Pakete aus.
+Dies könnte Interessant für die Fehleranalyse sein.
+
+##### Ping Pakete auswerten
+
+
 ### Flask
 
 ### HTML/CSS

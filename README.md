@@ -1,4 +1,4 @@
-# Scappy-Website
+# Scapy-Website
 
 ### Funktion
 
